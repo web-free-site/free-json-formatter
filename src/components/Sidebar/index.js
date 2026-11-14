@@ -12,7 +12,15 @@ import { SCHEMA_URL } from "../../config/api";
 const Form = styled.form`
   height: calc(100vh - ${(props) => props.theme.layout.navHeight});
   width: 20%;
+  min-width: 220px;
   overflow-y: auto;
+
+  @media (max-width: 520px) {
+    width: 100%;
+    min-width: 0;
+    max-height: 40vh;
+    border-bottom: 1px solid #e2e8f0;
+  }
 `;
 
 const key = "json.config";

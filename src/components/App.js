@@ -1,81 +1,69 @@
-import React, { lazy, useEffect, useState, Fragment } from "react";
-import styled, { ThemeProvider } from "styled-components";
-import {
-  GlobalStyle as BuffetGlobalStyles,
-  Fonts as BuffetFonts,
-} from "buffetjs";
-import Peer from "peerjs";
-import { BrowserRouter, Route } from "react-router-dom";
+import React, { useMemo } from "react";
+import { BrowserRouter, Switch, Route, useLocation } from "react-router-dom";
 
-import theme from "../utils/theme";
-import GlobalStyles from "../utils/GlobalStyles";
-import Header from "./Header";
-import getEditor from "../utils/editor-actions";
-import Sidebar from "./Sidebar";
-import EditorView from "./Editors/EditorView";
-import { EditorCtxProvider } from "./Editors/EditorContext";
+import { localeFromPath } from "../i18n/messages";
+import RouteMeta from "../seo/RouteMeta";
+import SiteChrome from "./SiteChrome";
+import JsonFormatterPage from "../pages/JsonFormatterPage";
+import ContentPage from "../pages/ContentPage";
 
-const MobileMessage = lazy(() => import("./MobileMessage"));
+const TOOL_PATHS = [
+  "/",
+  "/fr/",
+  "/json-beautifier-no-signup",
+  "/json-validator-browser",
+];
 
-const Main = styled.main`
-  min-height: calc(100vh - ${(props) => props.theme.layout.navHeight} - 1rem);
-  position: relative;
-  flex: 1;
-`;
+function AppRoutes() {
+  const location = useLocation();
+  const locale = useMemo(() => localeFromPath(location.pathname), [location.pathname]);
+  const isTool = TOOL_PATHS.some(
+    (p) => location.pathname === p || (p === "/fr/" && location.pathname === "/fr"),
+  );
+
+  return (
+  <>
+      <RouteMeta />
+      <SiteChrome locale={locale} showMidAds={!isTool}>
+        <Switch>
+          <Route exact path="/">
+            <JsonFormatterPage seoPath="/" />
+          </Route>
+          <Route path={["/fr", "/fr/"]}>
+            <JsonFormatterPage seoPath="/fr/" />
+          </Route>
+          <Route path="/json-beautifier-no-signup">
+            <JsonFormatterPage seoPath="/json-beautifier-no-signup" />
+          </Route>
+          <Route path="/json-validator-browser">
+            <JsonFormatterPage seoPath="/json-validator-browser" />
+          </Route>
+          <Route path="/privacy">
+            <ContentPage seoPath="/privacy" />
+          </Route>
+          <Route path="/terms">
+            <ContentPage seoPath="/terms" />
+          </Route>
+          <Route path="/about">
+            <ContentPage seoPath="/about" />
+          </Route>
+          <Route path="/contact">
+            <ContentPage seoPath="/contact" />
+          </Route>
+          <Route>
+            <JsonFormatterPage seoPath="/" />
+          </Route>
+        </Switch>
+      </SiteChrome>
+    </>
+  );
+}
 
 function App() {
-  const editorConfig = getEditor();
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const userLink = params.get("q");
-    if (userLink) {
-      const peer = new Peer();
-      const connection = peer.connect(userLink);
-      connection.on("open", () => {
-        connection.on("data", (value) => {
-          editorConfig.setValue(value);
-        });
-      });
-    }
-  }, [editorConfig]);
-  useEffect(() => {
-    const { matches } = window.matchMedia("(max-width: 600px)");
-    setIsMobile(matches);
-  }, []);
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Route
-          path="/"
-          render={() => (
-            <EditorCtxProvider value={editorConfig}>
-              {!isMobile ? (
-                <Fragment>
-                  <Header />
-                  <div
-                    role="group"
-                    css={`
-                      display: flex;
-                    `}
-                  >
-                    <Sidebar editorConfig={editorConfig} />
-                    <Main>
-                      <EditorView />
-                    </Main>
-                  </div>
-                </Fragment>
-              ) : (
-                <MobileMessage />
-              )}
-              <BuffetFonts />
-              <BuffetGlobalStyles />
-              <GlobalStyles />
-            </EditorCtxProvider>
-          )}
-        />
-      </BrowserRouter>
-    </ThemeProvider>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }
 

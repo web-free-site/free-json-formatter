@@ -42,13 +42,13 @@ function InfoBanner() {
       </Section>
       <Section as="div">
         <span>Share </span>
-        <NakedButton href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fjsoncrew.netlify.com%2F&via=agneymenon&text=JSON%20Crew%20-%20Viewer%2C%20Editor%2C%20Formatter%2C%20Validator%20%26%20more.">
+        <NakedButton href="https://twitter.com/intent/tweet?url=https%3A%2F%2Ffree-json-formatter.web-free.site%2F&text=Free%20JSON%20Formatter%20-%20format%2C%20validate%20%26%20beautify%20JSON.">
           <TwitterIcon />
         </NakedButton>
-        <NakedButton href="https://telegram.me/share/url?url=https%3A%2F%2Fjsoncrew.netlify.com&text=JSON%20Crew%20-%20Viewer%2C%20Editor%2C%20Formatter%2C%20Validator%20%26%20more.">
+        <NakedButton href="https://telegram.me/share/url?url=https%3A%2F%2Ffree-json-formatter.web-free.site&text=Free%20JSON%20Formatter">
           <TelegramIcon />
         </NakedButton>
-        <NakedButton href="https://www.reddit.com/submit?url=https%3A%2F%2Fjsoncrew.netlify.com&title=JSON%20Crew%20-%20Viewer%2C%20Editor%2C%20Formatter%2C%20Validator%20%26%20more.">
+        <NakedButton href="https://www.reddit.com/submit?url=https%3A%2F%2Ffree-json-formatter.web-free.site&title=Free%20JSON%20Formatter">
           <RedditIcon />
         </NakedButton>
         {isSupported && <NakedButton onClick={share}>Share</NakedButton>}

@@ -2,12 +2,11 @@ import React, { Fragment, useContext, useState } from "react";
 
 import Editor from "./Editor";
 import DetectPaste from "./DetectPaste";
-import Tabs from "../CollapsibleTabs/Tabs";
 import EditorContext from "./EditorContext";
 import DiffEditor from "./DiffEditor";
-import { PluginContextProvider } from "../Plugins/pluginContext";
+import PropTypes from "prop-types";
 
-const EditorView = () => {
+const EditorView = ({ compact }) => {
   const editorConfig = useContext(EditorContext);
   const [transformed, setTransformed] = useState(null);
   const [editorVal, setEditorVal] = useState("");
@@ -36,12 +35,17 @@ const EditorView = () => {
       ) : (
         <Editor value={editorVal} editorConfig={editorConfig} />
       )}
-      <PluginContextProvider>
-        <Tabs onTransform={onTransform} />
-      </PluginContextProvider>
       <DetectPaste />
     </Fragment>
   );
+};
+
+EditorView.propTypes = {
+  compact: PropTypes.bool,
+};
+
+EditorView.defaultProps = {
+  compact: false,
 };
 
 export default EditorView;

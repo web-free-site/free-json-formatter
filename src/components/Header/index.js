@@ -34,7 +34,7 @@ function Header() {
           css={`
             height: 2rem;
           `}
-          aria-label="JSON Crew - A JSON Viewer, Formatter and Validator."
+          aria-label="Free JSON Formatter — home"
         />
       </Link>
       <FormatBtn onClick={editorConfig.format} />

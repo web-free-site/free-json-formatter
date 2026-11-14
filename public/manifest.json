@@ -1,6 +1,6 @@
 {
-  "name": "JSON Crew",
-  "short_name": "JC",
+  "name": "Free JSON Formatter",
+  "short_name": "JSON",
   "start_url": "/",
   "background_color": "#000000",
   "theme_color": "#3B8BEB",

@@ -1,10 +1,10 @@
 {
-  "name": "json-formatter",
+  "name": "free-json-formatter",
   "version": "1.0.0",
   "description": "A JSON Formatter",
   "main": "index.js",
   "scripts": {
-    "build": "rspack build --env prod",
+    "build": "rspack build --env prod && node scripts/prerender-seo.mjs && node scripts/generate-sitemap.mjs",
     "start": "rspack dev --env dev",
     "test": "vitest run",
     "analyze-bundle": "cross-env ANALYZE=true bun run build",
