@@ -43,10 +43,6 @@ module.exports = {
             ignore: ["**/index.html"],
           },
         },
-        {
-          from: "_redirects",
-          to: commonPaths.outputPath,
-        },
       ],
     }),
     ...(process.env.ANALYZE ? [new BundleAnalyzerPlugin()] : []),
