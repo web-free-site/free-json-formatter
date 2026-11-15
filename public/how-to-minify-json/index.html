@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to minify JSON for production</title>
+<meta name="description" content="Minify JSON in your browser to remove unnecessary whitespace before you ship a config file or a static payload, using Free JSON Formatter.">
+<link rel="canonical" href="https://free-json-formatter.web-free.site/how-to-minify-json">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to minify JSON for production">
+<meta property="og:description" content="Minify JSON in your browser to remove unnecessary whitespace before you ship a config file or a static payload, using Free JSON Formatter.">
+<meta property="og:url" content="https://free-json-formatter.web-free.site/how-to-minify-json">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to minify JSON for production">
+<meta name="twitter:description" content="Minify JSON in your browser to remove unnecessary whitespace before you ship a config file or a static payload, using Free JSON Formatter.">
+<meta name="robots" content="index,follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to minify JSON", "description": "Minify JSON in your browser to remove unnecessary whitespace before you ship a config file or a static payload, using Free JSON Formatter.", "inLanguage": "en", "step": [{"@type": "HowToStep", "position": 1, "name": "Validate before you minify", "text": "Paste the JSON and confirm it is valid. Minifying invalid text just makes errors harder to see."}, {"@type": "HowToStep", "position": 2, "name": "Keep a formatted copy for editing", "text": "Save or keep a beautified version in source control if people will edit the file. Generate a minified copy for the build or the server."}, {"@type": "HowToStep", "position": 3, "name": "Run minify and download or copy", "text": "Use the minify action in Free JSON Formatter, then copy the result or download it."}, {"@type": "HowToStep", "position": 4, "name": "Confirm the consumer still accepts it", "text": "Most JSON parsers accept minified input. If a tool you use is line-oriented or expects comments, it may not be strict JSON — check before you deploy."}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to minify JSON for production", "description": "Minify JSON in your browser to remove unnecessary whitespace before you ship a config file or a static payload, using Free JSON Formatter.", "inLanguage": "en", "datePublished": "2026-11-15", "dateModified": "2026-11-15", "mainEntityOfPage": "https://free-json-formatter.web-free.site/how-to-minify-json", "author": {"@type": "Organization", "name": "web-free.site", "url": "https://web-free.site/"}, "publisher": {"@type": "Organization", "name": "web-free.site", "url": "https://web-free.site/"}, "about": "Free JSON Formatter"}</script>
+<style>
+  :root { color-scheme: light dark; }
+  body.wf-guide{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;background:#fff;color:#1a1a1a}
+  .wf-guide-header,.wf-guide-main{max-width:46rem;margin:0 auto;padding:1rem 1.15rem}
+  .wf-guide-header{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:baseline;border-bottom:1px solid #e3e3e3}
+  .wf-guide-header a{color:inherit;text-decoration:none;font-weight:700}
+  .wf-guide-header nav a{font-weight:500;text-decoration:underline;margin-right:.8rem}
+  .wf-guide-main h1{margin:.4rem 0 1rem;font-size:1.85rem;line-height:1.25}
+  .wf-guide-main h2{margin:1.6rem 0 .5rem;font-size:1.2rem}
+  .wf-guide-main p,.wf-guide-main li{margin:0 0 .75rem}
+  .wf-guide-main ol{padding-left:1.25rem}
+  .wf-guide-main a{color:#0b57d0}
+  .wf-guide-main .wf-cta{margin:1.5rem 0}
+  @media (prefers-color-scheme:dark){
+    body.wf-guide{background:#111;color:#f3f3f3}
+    .wf-guide-header{border-bottom-color:#333}
+    .wf-guide-main a{color:#8ab4f8}
+  }
+</style>
+</head>
+<body class="wf-guide">
+  <header class="wf-guide-header">
+    <a href="/">Free JSON Formatter</a>
+    <nav aria-label="Page">
+      <a href="/">Open the tool</a>
+      <a href="https://web-free.site/">All free tools</a>
+    </nav>
+  </header>
+  <main class="wf-guide-main">
+    <article>
+      <h1>How to minify JSON</h1>
+      <p>Minifying JSON removes extra spaces, tabs, and line breaks. The data stays the same, but the file is smaller and is the usual form for production config and many APIs. Free JSON Formatter can minify in the browser after it validates the text.</p>
+      <h2>Steps</h2>
+      <ol><li><strong>Validate before you minify.</strong> Paste the JSON and confirm it is valid. Minifying invalid text just makes errors harder to see.</li><li><strong>Keep a formatted copy for editing.</strong> Save or keep a beautified version in source control if people will edit the file. Generate a minified copy for the build or the server.</li><li><strong>Run minify and download or copy.</strong> Use the minify action in Free JSON Formatter, then copy the result or download it.</li><li><strong>Confirm the consumer still accepts it.</strong> Most JSON parsers accept minified input. If a tool you use is line-oriented or expects comments, it may not be strict JSON — check before you deploy.</li></ol>
+      <h2>Whitespace and meaning</h2>
+<p>Spaces inside strings are part of the data and are not removed. Only whitespace between tokens is dropped.</p><h2>Source maps and diffs</h2>
+<p>Minified files produce noisy diffs. Prefer to edit the formatted source and minify in a build step when you can.</p>
+      <p class="wf-cta">Minify a valid file with <a href="/">Free JSON Formatter</a>.</p>
+    </article>
+  </main>
+  
+<aside id="wf-more-tools" class="wf-more-tools" aria-labelledby="wf-mt-title">
+  <style>
+    .wf-more-tools{box-sizing:border-box;width:100%;margin:2.5rem 0 0;padding:1.5rem 1rem 5rem;border-top:1px solid rgba(0,0,0,.12);background:rgba(248,249,251,.97);color:#1a1a1a;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:15px;line-height:1.5}
+    .wf-more-tools *{box-sizing:border-box}
+    .wf-more-tools h2{margin:0 0 .35rem;font-size:1.15rem;font-weight:700}
+    .wf-more-tools .wf-mt-lead{margin:0 0 1rem;color:#333}
+    .wf-more-tools .wf-mt-lead a{color:#0b57d0}
+    .wf-more-tools .wf-mt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem 1.25rem}
+    .wf-more-tools h3{margin:0 0 .4rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:#444}
+    .wf-more-tools ul{margin:0;padding:0;list-style:none}
+    .wf-more-tools li{margin:0 0 .25rem}
+    .wf-more-tools a{color:#0b57d0;text-decoration:underline}
+    .wf-more-tools a:hover{text-decoration:none}
+    @media (prefers-color-scheme:dark){
+      .wf-more-tools{background:rgba(22,24,28,.96);color:#f2f2f2;border-top-color:rgba(255,255,255,.14)}
+      .wf-more-tools .wf-mt-lead,.wf-more-tools h3{color:#c8c8c8}
+      .wf-more-tools a{color:#8ab4f8}
+    }
+  </style>
+  <h2 id="wf-mt-title">More free tools</h2>
+  <p class="wf-mt-lead">These utilities run in your browser. Browse the full list on <a href="https://web-free.site/">web-free.site</a>.</p>
+  <div class="wf-mt-grid">
+    <div class="wf-mt-cat wf-mt-guides"><h3>Guides on this site</h3><ul><li><a href="/how-to-fix-unexpected-token-in-json">How to fix an unexpected token in JSON</a></li><li><a href="/how-to-minify-json">How to minify JSON</a></li></ul></div>
+    <div class="wf-mt-cat"><h3>Documents &amp; writing</h3><ul><li><a href="https://free-word-counter.web-free.site/">Free Word Counter</a></li><li><a href="https://free-pdf-converter.web-free.site/">Free PDF Converter</a></li><li><a href="https://free-cv-maker.web-free.site/">Free CV Maker</a></li><li><a href="https://free-invoice-generator.web-free.site/">Free Invoice Generator</a></li><li><a href="https://free-typing-test.web-free.site/">Free Typing Test</a></li><li><a href="https://free-signature-generator.web-free.site/">Free Signature Generator</a></li></ul></div><div class="wf-mt-cat"><h3>Images &amp; codes</h3><ul><li><a href="https://free-qr-code-creator.web-free.site/">Free QR Code Creator</a></li><li><a href="https://free-image-resizer.web-free.site/">Free Image Resizer</a></li><li><a href="https://free-image-to-text.web-free.site/">Free Image to Text</a></li><li><a href="https://free-background-remover.web-free.site/">Free Background Remover</a></li><li><a href="https://free-image-compressor.web-free.site/">Free Image Compressor</a></li></ul></div><div class="wf-mt-cat"><h3>Calculators &amp; currency</h3><ul><li><a href="https://free-online-calculator.web-free.site/">Free Online Calculator</a></li><li><a href="https://free-currency-converter.web-free.site/">Free Currency Converter</a></li><li><a href="https://free-unit-converter.web-free.site/">Free Unit Converter</a></li></ul></div><div class="wf-mt-cat"><h3>Text &amp; SEO</h3><ul><li><a href="https://free-ai-humanizer.web-free.site/">Free AI Humanizer</a></li><li><a href="https://free-seo-generator.web-free.site/">Free SEO Generator</a></li><li><a href="https://free-backlink-generator.web-free.site/">Free Backlink Generator</a></li><li><strong>Free JSON Formatter</strong></li></ul></div><div class="wf-mt-cat"><h3>Test data</h3><ul><li><a href="https://free-fake-address-generator.web-free.site/">Free Fake Address Generator</a></li><li><a href="https://free-fake-name-generator.web-free.site/">Free Fake Name Generator</a></li></ul></div><div class="wf-mt-cat"><h3>Security &amp; passwords</h3><ul><li><a href="https://free-password-generator.web-free.site/">Free Password Generator</a></li></ul></div>
+  </div>
+</aside>
+
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3e2f5f96ab32442ebb6e6f650615b58a"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

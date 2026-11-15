@@ -66,6 +66,8 @@ export const PRERENDER_PAGES = [
 ];
 
 export const SITEMAP_PATHS = [
+  "/how-to-fix-unexpected-token-in-json",
+  "/how-to-minify-json",
   "/",
   "/fr/",
   "/json-beautifier-no-signup",
