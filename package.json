@@ -4,7 +4,7 @@
   "description": "A JSON Formatter",
   "main": "index.js",
   "scripts": {
-    "build": "rspack build --env prod && node scripts/prerender-seo.mjs && node scripts/generate-sitemap.mjs",
+    "build": "rspack build --env prod && node scripts/prerender-seo.mjs && node scripts/generate-sitemap.mjs && node scripts/inject-hub-legal.mjs",
     "start": "rspack dev --env dev",
     "test": "vitest run",
     "analyze-bundle": "cross-env ANALYZE=true bun run build",
